@@ -10,7 +10,8 @@ int main() {
   FileReaderUP reader_;
 
   try {
-    reader_ = Factory<eudaq::FileReader>::MakeUnique(cstr2hash("native"),"run000394_caribou_190331102118.raw" );
+    std::string path = "run000394_caribou_190331102118.raw";
+    reader_ = Factory<eudaq::FileReader>::MakeUnique(cstr2hash("native"), path);
   } catch(...) {
     std::cout << "eudaq::FileReader could not read the input file. Please verify that the path and file name are correct.";
     return 1;
